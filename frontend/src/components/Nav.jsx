@@ -1,14 +1,21 @@
 import { useState } from "react";
 import { NavLink } from "react-router-dom";
 import "./NavSection.css";
+import { useContext, useEffect } from "react";
+import { Usercontext } from "@/components/Wrapper";
+
 const Nav = () => {
-  const [navContent, setnavContent] = useState([
+  const [userData, setuserData] = useContext(Usercontext);
+
+  const navContent = [
     { id: 1, title: "Home", link: "/" },
     { id: 2, title: "About", link: "/about" },
     { id: 3, title: "Service", link: "/service" },
     { id: 4, title: "Contact", link: "/contact" },
-    { id: 5, title: "Login", link: "/login" },
-  ]);
+    ...(!userData
+      ? [{ id: 5, title: "Login", link: "/login" }]
+      : [{ id: 5, title: "Logout", link: "/logout" }]),
+  ];
 
   const [openMenu, setopenMenu] = useState(false);
 
@@ -33,9 +40,7 @@ const Nav = () => {
       <NavLink
         key={enav.id}
         to={enav.link}
-        className={({ isActive }) =>
-          isActive ? "active" : ""
-        }
+        className={({ isActive }) => (isActive ? "active" : "")}
       >
         <p> {enav.title}</p>
       </NavLink>

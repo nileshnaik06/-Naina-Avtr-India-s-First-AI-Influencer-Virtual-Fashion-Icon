@@ -55,7 +55,7 @@ form input {
   border: 1px solid white;
   margin-bottom: 1rem;
   padding: 0 1rem;
-  font-family: inputText;
+  font-family: formInput;
   outline: none;
   font-weight: 300;
   font-size: 1em;
@@ -121,7 +121,7 @@ form label {
 
   form input {
     font-weight: 100;
-    font-family: inputText;
+    font-family: formInput;
   }
 }
 

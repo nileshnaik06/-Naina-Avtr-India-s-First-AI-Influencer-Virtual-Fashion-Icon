@@ -1,8 +1,12 @@
 import { useForm } from "react-hook-form";
 import "./LoginPage.css";
 import axios from "../Utils/axios";
+import { useContext } from "react";
+import { Usercontext } from "./Wrapper";
 
 const UserForm = () => {
+  const [userData, setuserData] = useContext(Usercontext);
+
   const {
     register,
     handleSubmit,
@@ -11,7 +15,7 @@ const UserForm = () => {
   } = useForm();
 
   const onSubmit = async (data) => {
-    console.log("Form Data:", data);
+    // console.log("Form Data:", data);
     try {
       const res = await axios.post("/user", {
         userName: data.username,
@@ -19,10 +23,10 @@ const UserForm = () => {
         password: data.password,
       });
       console.log("✅ Success:", res.data);
+      setuserData(res.data);
     } catch (err) {
       console.error("Error submitting form:", err);
     }
-
     reset();
   };
 
