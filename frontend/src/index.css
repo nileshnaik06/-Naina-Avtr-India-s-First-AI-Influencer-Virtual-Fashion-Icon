@@ -1,0 +1,106 @@
+@import "tailwindcss";
+
+@font-face {
+  font-family: "LogoFont";
+  src: url(../public/Assets/Fonts/sooner.otf);
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "marque";
+  src: url(../public/Assets/Fonts/3856NeueMachina.woff2);
+  font-display: swap;
+}
+@font-face {
+  font-family: "heroText";
+  src: url(../public/Assets/Fonts/BingoRegular-aYJ8m.otf);
+  font-display: swap;
+}
+@font-face {
+  font-family: "smallText";
+  src: url(../public/Assets/Fonts/Helvetica\ Condensed\ Regular.ttf);
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "navLinks";
+  src: url(../public/Assets/Fonts/DaymondFreeTrial-yYPGq.otf);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0%;
+  padding: 0%;
+}
+html,
+body {
+  width: 100%;
+  background: radial-gradient(
+      circle at top right,
+      rgba(206, 70, 255, 0.288),
+      rgba(56, 189, 248, 0.15),
+      transparent 25%
+    ),
+    radial-gradient(
+      circle at bottom left,
+      rgba(56, 189, 248, 0.15),
+      transparent 30%
+    ),
+    var(--color-bg);
+  color: var(--text-color);
+  scroll-behavior: smooth;
+  background-repeat: no-repeat;
+}
+
+#root {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+:root {
+  --color-primary: #d96eff;
+  --color-accent: #38bdf8;
+  --color-bg: #060010;
+  --color-bg-secondary: #18181b;
+  --text-color: #ffffff;
+  --color-text-muted: #a1a1aa;
+  --color-border: #2e2e35;
+}
+
+.cursor {
+  position: fixed;
+  top: 5%;
+  left: 5%;
+  width: 1.5rem;
+  height: 1.5rem;
+  background: wheat;
+  border-radius: 50%;
+  z-index: 30;
+  mix-blend-mode: difference;
+}
+
+/* Works on Chrome, Edge, Safari */
+::-webkit-scrollbar {
+  width: 1px; /* make it slim */
+}
+
+::-webkit-scrollbar-track {
+  background: transparent; /* transparent track */
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: rgba(255, 255, 255, 0.3); /* semi-transparent thumb */
+  border-radius: 3px;
+}
+
+/* Optional: hover effect */
+::-webkit-scrollbar-thumb:hover {
+  background-color: rgba(255, 255, 255, 0.5);
+}
+
+/* Firefox */
+* {
+  scrollbar-width: thin; /* slim */
+  scrollbar-color: rgba(255, 255, 255, 0.3) transparent;
+}

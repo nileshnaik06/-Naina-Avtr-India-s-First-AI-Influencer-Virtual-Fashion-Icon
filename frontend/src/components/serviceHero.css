@@ -1,0 +1,6 @@
+.serviceHero {
+  width: 100%;
+  height: 100vh;
+  background-color: var(--color-bg);
+  padding: 1rem 3rem;
+}

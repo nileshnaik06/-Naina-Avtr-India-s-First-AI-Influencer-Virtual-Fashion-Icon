@@ -1,0 +1,299 @@
+.abtHero {
+  width: 100%;
+  height: 100%;
+  padding: 1rem 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column-reverse;
+  gap: 2rem;
+}
+.abtHeroLeft {
+  width: 100%;
+  height: 50%;
+  border-radius: 8px;
+}
+
+.abtHeroLeft img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  border-radius: 8px;
+}
+
+.abtHeroRight {
+  width: 100%;
+  height: 45%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 0.8rem;
+}
+
+.abtHeroRight h1 {
+  font-size: 2.6em;
+  font-family: heroText;
+  color: rgba(255, 255, 255, 0.541);
+}
+.abtHeroRight h1 span {
+  color: rgb(255, 255, 255);
+  font-family: LogoFont;
+  text-transform: uppercase;
+  text-decoration: underline;
+}
+.txt {
+  text-align: justify;
+  width: 100%;
+}
+
+.txt h2 {
+  font-size: 1.2em;
+  font-family: marque;
+  color: rgba(255, 255, 255, 0.774);
+  font-weight: 400;
+}
+
+.txt h2 span {
+  color: rgba(251, 255, 2, 0.925);
+  text-transform: uppercase;
+  text-decoration: underline;
+}
+
+.txt h4 {
+  font-family: smallText;
+  font-size: 0.8rem;
+  font-weight: 200;
+  color: rgba(255, 255, 255, 0.521);
+}
+
+.ctaBtns {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 3rem;
+  width: 100%;
+  font-family: smallText;
+  margin-top: 1rem;
+  color: black;
+  text-align: center;
+  font-weight: 600;
+}
+
+.abtMe {
+  width: 45%;
+  height: 100%;
+  background-color: #d8ff04;
+  padding: 0.6rem;
+  font-size: 0.8rem;
+  border-radius: 3px;
+  padding: 0.7rem;
+}
+.serMe {
+  width: 45%;
+  background-color: #ffffffcb;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  height: 100%;
+  font-size: 0.8rem;
+  border-radius: 3px;
+  padding: 0.7rem;
+}
+
+.serMe img {
+  width: 2em;
+  rotate: 90deg;
+  aspect-ratio: 1/1;
+  border: 1px solid black;
+  border-radius: 50%;
+  padding: 0.3rem;
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+  .abtHero {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .ctaBtns {
+    justify-content: normal;
+    gap: 2rem;
+  }
+
+  .txt h4 {
+    margin-top: 1rem;
+  }
+  .abtMe,
+  .serMe {
+    width: 9rem;
+  }
+
+  .abtHeroLeft {
+    width: 50%;
+    height: 100%;
+  }
+  .abtHeroRight {
+    width: 50%;
+    height: 100%;
+  }
+  .txt {
+    margin-top: 8vw;
+  }
+  .abtHeroLeft img {
+    width: 100%;
+    object-fit: cover;
+    object-position: top;
+  }
+}
+
+@media (min-width: 1023px) and (max-width: 2560px) {
+  .abtHero {
+    flex-direction: row;
+    justify-content: space-evenly;
+    height: 100%;
+    width: 100%;
+    align-items: center;
+  }
+  .abtHeroLeft {
+    width: 35%;
+    height: 50%;
+    border: 1px solid white;
+  }
+
+  .abtHeroLeft img {
+    width: 100%;
+    aspect-ratio: 1/1;
+    object-fit: cover;
+    transition: all ease 0.2s;
+  }
+
+  .abtHeroRight {
+    width: 40%;
+    aspect-ratio: 1/0.9;
+    display: flex;
+    height: 100%;
+    justify-content: start;
+    gap: 3rem;
+    height: 100%;
+  }
+
+  .abtHeroRight h1 {
+    font-size: 4vw;
+  }
+  .txt h2 {
+    margin-top: -5%;
+    font-size: 1.8vw;
+    width: 80%;
+    margin-bottom: 0.8rem;
+  }
+  .txt h4 {
+    width: 80%;
+    font-size: 1vw;
+  }
+
+  .ctaBtns {
+    justify-content: normal;
+    width: 100%;
+    gap: 2vw;
+  }
+
+  .abtMe,
+  .serMe {
+    width: 13em;
+    cursor: pointer;
+    font-size: 0.8em;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    transition: all ease 0.3s;
+  }
+
+  .abtMe:hover {
+    box-shadow: 2px 1px 7px rgb(200, 255, 0);
+  }
+
+  .serMe {
+    background-color: transparent;
+    color: white;
+    border: 1px solid wheat;
+    gap: 1rem;
+  }
+
+  .serMe:hover {
+    background-color: white;
+    color: var(--color-bg);
+  }
+
+  .serMe img {
+    background-color: white;
+    border: transparent;
+  }
+}
+
+@media (min-width: 2560px) {
+  .abtHero {
+    padding: 2vw 5vw;
+  }
+  .abtHeroRight {
+    justify-items: center;
+    width: 50%;
+    aspect-ratio: 2/1.5;
+  }
+
+  .abtHeroLeft {
+    width: 40%;
+    height: auto;
+  }
+
+  .abtHeroRight h1 {
+    font-size: 5vw;
+  }
+
+  .txt h2 {
+    font-size: 2vw;
+    width: 100%;
+    margin-bottom: 0.8rem;
+  }
+  .txt h4 {
+    width: 100%;
+    font-size: 1.2vw;
+  }
+
+  .ctaBtns {
+    justify-content: normal;
+    width: 100%;
+    gap: 2vw;
+  }
+
+  .abtMe,
+  .serMe {
+    width: 15vw;
+    cursor: pointer;
+    font-size: 1.2vw;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    line-height: 1;
+    height: 5.5rem;
+    transition: all ease 0.3s;
+  }
+
+  .abtMe:hover {
+    box-shadow: 2px 1px 7px rgb(200, 255, 0);
+  }
+
+  .serMe {
+    background-color: transparent;
+    color: white;
+    border: 1px solid wheat;
+    gap: 1rem;
+  }
+
+  .serMe:hover {
+    background-color: white;
+    color: var(--color-bg);
+  }
+
+  .serMe img {
+    background-color: white;
+    border: transparent;
+  }
+}

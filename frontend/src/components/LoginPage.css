@@ -1,0 +1,78 @@
+#Login {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  height: 89vh;
+}
+.right {
+  width: 100%;
+  height: 65%;
+  padding: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: column;
+}
+
+.right h2 {
+  font-size: 3em;
+  font-family: marque;
+}
+
+.left {
+  width: 100%;
+  height: 35%;
+  padding: 1rem;
+}
+
+.left video {
+  display: none;
+}
+
+.left img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 1rem;
+}
+
+form {
+  width: 100%;
+  height: 80%;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  flex-shrink: 0;
+  justify-content: space-evenly;
+}
+
+form input {
+  width: 100%;
+  height: 3em;
+  border-radius: 5px;
+  border: 1px solid white;
+  margin-bottom: 1rem;
+  padding: 0 1rem;
+  font-family: LogoFont;
+  font-weight: 300;
+  font-size: 1em;
+  letter-spacing: 1px;
+}
+
+form label {
+  font-size: 1rem;
+  font-family: heroText;
+}
+
+.formButton {
+  background: #d8ff04;
+  height: 2em;
+  border-radius: 210px;
+  color: black;
+  text-align: center;
+  font-size: 5vw;
+  font-family: marque;
+  font-weight: 500;
+}

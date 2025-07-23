@@ -1,0 +1,393 @@
+.heroContainer {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  height: calc(100vh - 72px);
+  padding: 1rem;
+}
+
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column-reverse;
+  width: 100%;
+  height: 100%;
+  padding: 0%;
+}
+
+.texts {
+  text-align: center;
+  color: white;
+  width: 100%;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.model {
+  width: 100%;
+  height: 50%;
+}
+
+.texts h1 {
+  font-size: 1.7rem;
+  font-family: "heroText";
+  font-weight: 700;
+  letter-spacing: 1px;
+  background: linear-gradient(
+    -90deg,
+    rgba(47, 0, 70, 0.664),
+    rgb(255, 255, 255),
+    rgb(255, 255, 255),
+    rgba(56, 189, 248, 0.15)
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: rgba(245, 245, 245, 0.616);
+}
+
+.texts span {
+  color: rgb(253, 248, 238);
+  font-family: LogoFont;
+  font-weight: 600;
+  font-size: 3rem;
+  filter: drop-shadow(0px 1px 6px rgba(0, 0, 0, 0.452));
+}
+
+.texts h3 {
+  font-size: 0.8rem;
+  width: 100%;
+  line-height: 1em;
+  margin-bottom: 1rem;
+  opacity: 0.8;
+  font-family: smallText;
+}
+
+.texts button {
+  height: 2.5rem;
+  width: clamp(7vw, 10rem, 10em);
+  pointer-events: all;
+  border: 1px solid rgb(224, 224, 224);
+  padding: 0.4rem 0.9rem;
+  font-size: 1rem;
+  font-weight: 500;
+  border-radius: 3px;
+  transition: all ease-in-out 0.4s;
+  font-family: "smallText";
+}
+
+.texts button img {
+  width: 1.66rem;
+  aspect-ratio: 1/1;
+  border: 1px solid transparent;
+  border-radius: 50%;
+  padding: 0.2rem;
+  background: #ffffff3d;
+}
+
+.texts button:hover {
+  background-color: var(--text-color);
+  color: var(--color-bg);
+  border: transparent;
+}
+
+.texts button:active {
+  scale: 0.9;
+}
+
+canvas {
+  width: 100%;
+  height: 100%;
+  position: "fixed";
+  top: 0;
+  left: 0;
+  pointer-events: "auto";
+  object-fit: cover;
+}
+
+.heart {
+  position: absolute;
+  top: 15%;
+  left: 8%;
+  rotate: -40deg;
+}
+.prof {
+  position: absolute;
+  top: 10%;
+  right: 8%;
+  rotate: 20deg;
+}
+.hash {
+  position: absolute;
+  bottom: 10%;
+  left: 8%;
+  rotate: -80deg;
+}
+.smile {
+  position: absolute;
+  bottom: 20%;
+  right: 8%;
+  rotate: 80deg;
+}
+
+@keyframes icon {
+  0% {
+    transform: translate(0px);
+    rotate: -0deg;
+  }
+
+  25% {
+    transform: translateX(2.5px);
+  }
+
+  50% {
+    transform: translateX(0px);
+  }
+
+  75% {
+    transform: translate(-2.5px);
+  }
+
+  100% {
+    transform: translate(0px);
+  }
+}
+
+.aniIcons {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  display: none;
+}
+.aniIcons img {
+  width: 10%;
+  filter: drop-shadow(2px 2px 5px black) blur(1px);
+  display: block;
+  animation: icon 2s ease-in-out infinite alternate-reverse;
+}
+
+.features {
+  width: 100%;
+  margin: 1rem 0%;
+  padding: 0.7rem 2rem;
+  transition: all ease 0.2s;
+}
+.features h1 {
+  font-family: marque;
+  font-size: 5vw;
+  font-weight: 500;
+}
+
+.features hr {
+  width: 25vw;
+  color: #d8ff04;
+  margin-bottom: 1rem;
+}
+
+.ic {
+  width: 100%;
+  overflow-x: hidden;
+  margin: 1rem 0;
+  position: relative;
+  background-color: transparent;
+}
+
+.ic-track {
+  display: flex;
+  width: max-content;
+  /* animation: workAnim 20s linear infinite; */
+}
+
+.works {
+  min-width: 100px;
+  width: 8rem;
+  text-align: center;
+  cursor: pointer;
+  flex: 0 0 auto;
+  margin-right: 3rem;
+}
+
+.works p {
+  font-family: "marque";
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: black;
+  background-color: #d8ff04;
+  border-radius: 5px;
+}
+.marquee {
+  overflow: hidden;
+  width: 100%;
+  position: relative;
+}
+
+.track {
+  display: flex;
+  width: max-content;
+}
+
+.works img {
+  min-width: 8em;
+  width: clamp(2vw, 5em, 25rem);
+  aspect-ratio: 2/1;
+  object-fit: contain;
+  padding: 0.7rem 0;
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+  .heroContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .model {
+    height: 60%;
+    position: relative;
+  }
+
+  .aniIcons {
+    display: block;
+  }
+
+  .texts {
+    height: 40%;
+    width: 100%;
+  }
+
+  .texts h1 {
+    font-size: 5vw;
+  }
+
+  .texts h3 {
+    font-size: 0.9rem;
+    width: 85%;
+  }
+}
+@media (min-width: 1023px) {
+  .heroContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .container {
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: flex-end;
+  }
+
+  .texts {
+    /* border: 1px solid white;? */
+    height: 90%;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    width: 55%;
+    flex-direction: column;
+    line-height: 2;
+  }
+
+  .texts h1 {
+    font-size: clamp(3rem, 5vw, 3.3em);
+    line-height: 1;
+    width: 100%;
+    margin-bottom: 0;
+  }
+
+  .texts span {
+    font-size: 8vw;
+    font-weight: 100;
+    width: 100%;
+  }
+
+  .texts button {
+    color: white;
+    font-weight: 500;
+  }
+
+  .texts button img {
+    background-color: white;
+    text-align: center;
+    transition: all ease 0.1s;
+  }
+
+  .texts h3 {
+    margin-top: -5%;
+    font-size: 0.88rem;
+    font-weight: 100;
+    line-height: 1rem;
+    font-family: "smallText";
+    width: 100%;
+    margin-bottom: 1rem;
+  }
+
+  .model {
+    /* border: 1px solid white; */
+    height: 100%;
+    width: 45%;
+  }
+
+  .aniIcons {
+    display: block;
+  }
+
+  .features {
+    padding: 1rem 5rem;
+  }
+}
+
+@media (min-width: 2560px) {
+  .container {
+    min-width: 100%;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    padding: 0 2vw;
+  }
+  .texts {
+    width: 65%;
+    z-index: 1;
+    height: auto;
+    line-height: 1.6;
+  }
+
+  .texts h1 {
+    font-size: 3.8vw;
+  }
+
+  .texts span {
+    font-size: 9vw;
+  }
+
+  .texts h3 {
+    font-size: 1.2vw;
+    line-height: 1;
+    width: 80%;
+  }
+
+  .texts button {
+    width: 12vw;
+    height: 3vw;
+    margin-top: 1rem;
+    font-size: 1.5vw;
+  }
+
+  .texts button img {
+    width: 1.5vw;
+  }
+
+  .features {
+    padding: 1rem 7vw;
+  }
+
+  .model {
+    width: 45%;
+    height: 100%;
+  }
+}
