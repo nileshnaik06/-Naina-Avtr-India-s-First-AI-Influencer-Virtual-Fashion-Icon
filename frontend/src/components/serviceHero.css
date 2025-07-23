@@ -1,6 +1,226 @@
 .serviceHero {
   width: 100%;
-  height: 100vh;
-  background-color: var(--color-bg);
+  height: auto;
+  min-height: 100%;
   padding: 1rem 3rem;
+  display: flex;
+  gap: 1rem;
+  flex-direction: column;
+}
+
+.head {
+  font-size: clamp(2vw, 3rem, 2.6em);
+  font-family: inputText;
+  font-weight: 700;
+  color: #ffffff;
+  text-transform: uppercase;
+}
+
+.serheroCenter {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.headTxt {
+  width: 100%;
+}
+
+.headTxt h1 {
+  font-size: 1.2em;
+  width: 100%;
+  font-weight: 500;
+  font-family: marque;
+}
+
+.headTxt h3 {
+  font-size: clamp(0.8em, 1.1em, 1.5rem);
+  width: 100%;
+  color: rgba(255, 255, 255, 0.705);
+  margin-top: 1.5rem;
+  font-family: smallText;
+  font-weight: 100;
+  text-align: end;
+}
+
+.heroSercards {
+  display: flex;
+  align-items: center;
+  flex-grow: 1;
+  flex-wrap: wrap;
+  width: 100%;
+  height: 65%;
+  margin-top: 1rem;
+}
+
+.heroSercards hr {
+  width: 90%;
+  margin: 1rem 0;
+  color: #d8ff04;
+}
+
+.my-card {
+  width: 100%;
+}
+
+.my-card h2 {
+  font-family: inputText;
+  font-weight: 700;
+  font-size: clamp(0.8em, 1.4rem, 5rem);
+  color: #fff0d8;
+}
+
+.my-card h4 {
+  font-family: smallText;
+  font-size: clamp(0.7rem, 1em, 1.4rem);
+  color: #ffffffa8;
+  font-weight: 100;
+  width: 95%;
+}
+
+.expSer {
+  background-color: #d8ff04;
+  width: fit-content;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  color: black;
+  cursor: pointer;
+}
+
+/* Responsive adjustments */
+
+@media (min-width: 768px) and (max-width: 1023px) {
+  .serviceHero {
+    align-items: center;
+  }
+
+  .serheroCenter {
+    width: 100%;
+    height: auto;
+  }
+
+  .headTxt h3,
+  .headTxt h1,
+  .my-card h2,
+  .my-card h4 {
+    text-align: center;
+  }
+
+  .heroSercards {
+    flex-direction: row;
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .my-card {
+    width: 45%;
+    height: 100%;
+  }
+
+  hr {
+    display: none;
+  }
+}
+
+@media (min-width: 1023px) and (max-width: 2560px) {
+  .serviceHero {
+    align-items: center;
+  }
+  .headTxt h3,
+  .headTxt h1,
+  .my-card h2,
+  .my-card h4 {
+    text-align: center;
+    width: 100%;
+  }
+
+  .serheroCenter {
+    width: 85%;
+    justify-content: center;
+    align-items: center;
+    height: auto;
+  }
+
+  .heroSercards {
+    flex-direction: row;
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  hr {
+    display: none;
+  }
+  .my-card {
+    width: 45%;
+    height: 100%;
+  }
+}
+
+@media (min-width: 2560px) and (max-width: 3500px) {
+  .serviceHero {
+    align-items: center;
+  }
+  .headTxt h3,
+  .headTxt h1,
+  .my-card h2,
+  .my-card h4 {
+    text-align: center;
+    width: 100%;
+  }
+
+  .head {
+    font-size: clamp(2vw, 7rem, 10vw);
+  }
+
+  .expSer {
+    font-size: clamp(1vw, 2vw, 2.5rem);
+    margin-top: 2vw;
+    cursor: pointer;
+  }
+
+  .serheroCenter {
+    width: 85%;
+    justify-content: center;
+    align-items: center;
+    height: auto;
+    gap: 2vw;
+  }
+
+  .my-card h2 {
+    font-size: clamp(2vw, 4rem, 10vw);
+  }
+
+  .headTxt {
+    width: 65%;
+  }
+  .headTxt h1 {
+    font-size: clamp(2vw, 3vw, 4rem);
+  }
+
+  .headTxt h3,
+  .my-card h4 {
+    font-size: clamp(1vw, 2vw, 2.2rem);
+  }
+
+  .heroSercards {
+    flex-direction: row;
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  hr {
+    display: none;
+  }
+  .my-card {
+    width: 45%;
+    height: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .heroSercards {
+    height: auto;
+    padding: 1rem;
+  }
 }

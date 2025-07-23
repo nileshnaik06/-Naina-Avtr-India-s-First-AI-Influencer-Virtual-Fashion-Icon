@@ -1,6 +1,9 @@
+import { useNavigate } from "react-router-dom";
 import "./Abouthero.css";
 
 const AboutHero = () => {
+  const nav = useNavigate();
+
   return (
     <div className="abtHero">
       <div className="abtHeroLeft">
@@ -23,7 +26,9 @@ const AboutHero = () => {
           </h4>
         </div>
         <div className="ctaBtns">
-          <button className="abtMe">know more About me!</button>
+          <button className="abtMe" onClick={() => nav("/about")}>
+            know more About me!
+          </button>
           <button className="serMe">
             Explore Services
             <img

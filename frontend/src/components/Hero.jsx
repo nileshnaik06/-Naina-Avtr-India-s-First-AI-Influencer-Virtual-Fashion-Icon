@@ -2,7 +2,7 @@ import { useNavigate } from "react-router-dom";
 import "./Hero.css";
 import ModelCanvas from "./ModelCanva";
 import "remixicon/fonts/remixicon.css";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import ServiceHero from "./ServiceHero";
 import Marquee from "react-fast-marquee";
 import AboutHero from "./AboutHero";
