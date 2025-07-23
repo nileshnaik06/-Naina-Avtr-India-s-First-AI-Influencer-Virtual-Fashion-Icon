@@ -5,7 +5,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  flex-direction: column-reverse;
+  flex-direction: column;
   gap: 2rem;
 }
 .abtHeroLeft {
@@ -229,19 +229,29 @@
   }
 }
 
-@media (min-width: 2560px) {
+@media (min-width: 2560px) and (max-width: 3500px) {
   .abtHero {
     padding: 2vw 5vw;
+    flex-direction: row;
+    justify-content: space-between;
   }
   .abtHeroRight {
     justify-items: center;
     width: 50%;
+    gap: 2vw;
     aspect-ratio: 2/1.5;
+  }
+
+  .abtHeroLeft img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 30px;
   }
 
   .abtHeroLeft {
     width: 40%;
-    height: auto;
+    aspect-ratio: 1/1;
   }
 
   .abtHeroRight h1 {
@@ -272,12 +282,8 @@
     font-weight: 500;
     letter-spacing: 0.5px;
     line-height: 1;
-    height: 5.5rem;
+    height: 3vw;
     transition: all ease 0.3s;
-  }
-
-  .abtMe:hover {
-    box-shadow: 2px 1px 7px rgb(200, 255, 0);
   }
 
   .serMe {
@@ -285,6 +291,7 @@
     color: white;
     border: 1px solid wheat;
     gap: 1rem;
+    padding: 1rem;
   }
 
   .serMe:hover {
@@ -293,6 +300,7 @@
   }
 
   .serMe img {
+    width: 2vw;
     background-color: white;
     border: transparent;
   }

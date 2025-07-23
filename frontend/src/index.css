@@ -26,6 +26,10 @@
   font-family: "navLinks";
   src: url(../public/Assets/Fonts/DaymondFreeTrial-yYPGq.otf);
 }
+@font-face {
+  font-family: "inputText";
+  src: url(../public/Assets/Fonts/GeovaTrial-Regular.ttf);
+}
 
 * {
   box-sizing: border-box;

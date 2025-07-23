@@ -122,6 +122,7 @@ const Hero = () => {
           >
             {work}
             {work}
+            {work}
           </Marquee>
         </div>
       </div>
