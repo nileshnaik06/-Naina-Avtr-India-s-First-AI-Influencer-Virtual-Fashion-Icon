@@ -17,7 +17,7 @@ const UserForm = () => {
   const onSubmit = async (data) => {
     // console.log("Form Data:", data);
     try {
-      const res = await axios.post("/user", {
+      const res = await axios.post("/user",   {
         userName: data.username,
         userEmail: data.email,
         password: data.password,

@@ -154,15 +154,18 @@ form label {
     justify-content: space-evenly;
   }
 
-  .left,
-  .right {
-    height: 100%;
-  }
-
   form {
     width: 50%;
     height: auto;
     gap: 1rem;
+  }
+  form label {
+    font-size: 1.5vw  ;
+  }
+
+  form input {
+    height: 3.5vw;
+    font-size: 1vw;
   }
 
   .formButton {
@@ -227,7 +230,7 @@ form label {
     font-size: 1.3vw;
   }
 
-  .formButton{
+  .formButton {
     font-size: 1.7vw;
     margin-top: 1vw;
   }

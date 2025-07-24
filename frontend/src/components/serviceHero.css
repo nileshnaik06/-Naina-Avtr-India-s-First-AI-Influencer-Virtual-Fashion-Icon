@@ -18,6 +18,7 @@
 
 .serheroCenter {
   width: 100%;
+  height: 100%;
   display: flex;
   align-items: center;
   flex-direction: column;
@@ -32,6 +33,7 @@
   width: 100%;
   font-weight: 500;
   font-family: marque;
+  color: #d8ff04;
 }
 
 .headTxt h3 {
@@ -41,42 +43,34 @@
   margin-top: 1.5rem;
   font-family: smallText;
   font-weight: 100;
-  text-align: end;
 }
-
-.heroSercards {
-  display: flex;
-  align-items: center;
-  flex-grow: 1;
-  flex-wrap: wrap;
+.hovers {
   width: 100%;
-  height: 65%;
-  margin-top: 1rem;
+  height: 100%;
 }
 
-.heroSercards hr {
-  width: 90%;
+.Serlist {
+  position: relative;
+  width: 100%;
+  height: 4rem;
   margin: 1rem 0;
-  color: #d8ff04;
+  border-bottom: 1px solid white;
 }
 
-.my-card {
-  width: 100%;
+.Serlist h2 {
+  pointer-events: none;
 }
 
-.my-card h2 {
-  font-family: inputText;
-  font-weight: 700;
-  font-size: clamp(0.8em, 1.4rem, 5rem);
-  color: #fff0d8;
-}
-
-.my-card h4 {
-  font-family: smallText;
-  font-size: clamp(0.7rem, 1em, 1.4rem);
-  color: #ffffffa8;
-  font-weight: 100;
-  width: 95%;
+.hover-img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 7rem;
+  height: 7rem;
+  object-fit: cover;
+  pointer-events: none;
+  opacity: 0;
+  z-index: 100;
 }
 
 .expSer {
@@ -91,81 +85,27 @@
 /* Responsive adjustments */
 
 @media (min-width: 768px) and (max-width: 1023px) {
-  .serviceHero {
-    align-items: center;
-  }
-
   .serheroCenter {
     width: 100%;
     height: auto;
-  }
-
-  .headTxt h3,
-  .headTxt h1,
-  .my-card h2,
-  .my-card h4 {
-    text-align: center;
-  }
-
-  .heroSercards {
-    flex-direction: row;
-    width: 100%;
-    justify-content: space-between;
-  }
-
-  .my-card {
-    width: 45%;
-    height: 100%;
-  }
-
-  hr {
-    display: none;
   }
 }
 
 @media (min-width: 1023px) and (max-width: 2560px) {
-  .serviceHero {
-    align-items: center;
-  }
   .headTxt h3,
-  .headTxt h1,
-  .my-card h2,
-  .my-card h4 {
-    text-align: center;
+  .headTxt h1 {
     width: 100%;
   }
 
   .serheroCenter {
-    width: 85%;
-    justify-content: center;
-    align-items: center;
-    height: auto;
-  }
-
-  .heroSercards {
-    flex-direction: row;
     width: 100%;
-    justify-content: space-between;
-  }
-
-  hr {
-    display: none;
-  }
-  .my-card {
-    width: 45%;
-    height: 100%;
+    height: auto;
   }
 }
 
 @media (min-width: 2560px) and (max-width: 3500px) {
-  .serviceHero {
-    align-items: center;
-  }
   .headTxt h3,
-  .headTxt h1,
-  .my-card h2,
-  .my-card h4 {
-    text-align: center;
+  .headTxt h1 {
     width: 100%;
   }
 
@@ -180,47 +120,41 @@
   }
 
   .serheroCenter {
-    width: 85%;
-    justify-content: center;
-    align-items: center;
+    width: 100%;
     height: auto;
     gap: 2vw;
   }
 
-  .my-card h2 {
-    font-size: clamp(2vw, 4rem, 10vw);
+  .Serlist {
+    margin: 1rem 0;
+    position: relative;
+    width: 100%;
+    height: 4vw;
+    margin: 1vw 0;
+  }
+
+  .Serlist img {
+    width: 8vw;
+    height: 8vw;
+    object-fit: cover;
+  }
+
+  .Serlist h2 {
+    pointer-events: none;
+    font-size: clamp(2vw, 4rem, 3em);
   }
 
   .headTxt {
-    width: 65%;
+    width: 100%;
   }
   .headTxt h1 {
     font-size: clamp(2vw, 3vw, 4rem);
   }
 
-  .headTxt h3,
-  .my-card h4 {
+  .headTxt h3 {
     font-size: clamp(1vw, 2vw, 2.2rem);
-  }
-
-  .heroSercards {
-    flex-direction: row;
-    width: 100%;
-    justify-content: space-between;
-  }
-
-  hr {
-    display: none;
-  }
-  .my-card {
-    width: 45%;
-    height: 100%;
   }
 }
 
 @media (max-width: 480px) {
-  .heroSercards {
-    height: auto;
-    padding: 1rem;
-  }
 }

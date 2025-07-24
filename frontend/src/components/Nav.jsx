@@ -37,10 +37,15 @@ const Nav = () => {
   };
 
   const handleLogout = async () => {
+    console.log("userData:", userData);
+    console.log("userData._id:", userData?._id);
+
+    if (!userData?._id) {
+      console.error("User ID is missing.");
+      return;
+    }
     try {
-      const res = await axios.delete("/user", {
-        params: userData.user._id,
-      });
+      const res = await axios.delete(`/user/${userData._id}`);
       localStorage.removeItem("user");
       setuserData(null);
     } catch (error) {
@@ -58,11 +63,7 @@ const Nav = () => {
     }
 
     return (
-      <NavLink
-        key={enav.id}
-        to={enav.link}
-        className={({ isActive }) => (isActive ? "active" : "")}
-      >
+      <NavLink key={enav.id} to={enav.link}>
         <p>{enav.title}</p>
       </NavLink>
     );
