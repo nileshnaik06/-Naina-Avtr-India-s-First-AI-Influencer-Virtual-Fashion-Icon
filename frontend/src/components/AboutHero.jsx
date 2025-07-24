@@ -25,18 +25,9 @@ const AboutHero = () => {
             and imagine beyond the ordinary.
           </h4>
         </div>
-        <div className="ctaBtns">
-          <button className="abtMe" onClick={() => nav("/about")}>
-            know more About me!
-          </button>
-          <button className="serMe">
-            Explore Services
-            <img
-              src="/Assets/Icons and videos/arrow-right-line.svg"
-              alt="Services"
-            />
-          </button>
-        </div>
+        <button className="cta-button" onClick={() => nav("/about")}>
+          EXPLORE MORE
+        </button>
       </div>
     </div>
   );
