@@ -1,5 +1,8 @@
 import axios from "../Utils/axios";
-import { createContext, useEffect, useState } from "react";
+import { createContext, useEffect, useState, Suspense, lazy } from "react";
+import ShimmerLoader from "./ShimmerLoader";
+
+// Lazy load children if they're heavy
 
 export const Usercontext = createContext(null);
 
@@ -9,24 +12,31 @@ const Wrapper = (props) => {
   useEffect(() => {
     const storedUser = localStorage.getItem("user");
     if (storedUser) {
-      setuserData(JSON.parse(storedUser)); // auto set context if user data exists
+      setuserData(JSON.parse(storedUser));
     }
 
     const getUser = async () => {
-      const respose = await axios.get("/user", {
-        params: userData.user,
-      });
-      setuserData(respose);
+      try {
+        if (userData?.user) {
+          const response = await axios.get("/user", {
+            params: userData.user,
+          });
+          setuserData(response.data);
+        }
+      } catch (error) {
+        console.error("Error fetching user:", error);
+      }
     };
 
-    return () => {
-      getUser();
-    };
-  }, []);
+    getUser();
+  }, [userData?.user]);
 
   return (
     <Usercontext.Provider value={[userData, setuserData]}>
-      {props.children}
+      <Suspense fallback={<ShimmerLoader />}>
+        {/* If children include big parts, lazy load them */}
+        {props.children}
+      </Suspense>
     </Usercontext.Provider>
   );
 };

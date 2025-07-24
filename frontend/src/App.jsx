@@ -1,6 +1,9 @@
-import { useEffect, useState } from "react";
-import Nav from "./components/Nav";
-import MainRoutes from "./Routes/MainRoutes";
+import { useEffect, useState, Suspense, lazy } from "react";
+import ShimmerLoader from "./components/ShimmerLoader";
+
+// Lazy load heavy components
+const Nav = lazy(() => import("./components/Nav"));
+const MainRoutes = lazy(() => import("./Routes/MainRoutes"));
 
 const App = ({ root }) => {
   const [size, setsize] = useState(window.innerWidth);
@@ -12,13 +15,9 @@ const App = ({ root }) => {
 
     window.addEventListener("resize", handleResize);
 
-    // Cleanup the event listener on unmount
-    return () => {
-      window.removeEventListener("resize", handleResize);
-    };
+    return () => window.removeEventListener("resize", handleResize);
   }, []);
 
-  // Add mousemove event on root div
   useEffect(() => {
     if (size < 1023) return;
 
@@ -34,17 +33,15 @@ const App = ({ root }) => {
 
     root.addEventListener("mousemove", handleMouseMove);
 
-    return () => {
-      root.removeEventListener("mousemove", handleMouseMove);
-    };
+    return () => root.removeEventListener("mousemove", handleMouseMove);
   }, [size]);
 
   return (
-    <>
+    <Suspense fallback={<ShimmerLoader />}>
       {size > 1023 && <div className="cursor"></div>}
       <Nav />
       <MainRoutes />
-    </>
+    </Suspense>
   );
 };
 

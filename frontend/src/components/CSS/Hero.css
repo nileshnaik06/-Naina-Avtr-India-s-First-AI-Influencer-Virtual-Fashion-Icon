@@ -227,6 +227,30 @@ canvas {
   position: relative;
 }
 
+.cont {
+  padding: 1rem 2rem;
+  width: 100%;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  display: flex;
+  align-items: center;
+}
+
+.brf_cont {
+  font-family: LogoFont;
+  font-size: clamp(2rem, 3vw + 1rem, 3.5rem);
+  margin-left: 2rem;
+  margin-top: 2rem;
+}
+
+.cont-right {
+  width: 100%;
+}
+
+.contac-left {
+  display: none;
+}
+
 .track {
   display: flex;
   width: max-content;
@@ -280,6 +304,31 @@ canvas {
     flex-direction: row;
     justify-content: flex-end;
     align-items: flex-end;
+  }
+
+  .contac-left {
+    display: block;
+    width: 50%;
+    aspect-ratio: 2/1;
+  }
+
+  .contac-left h1 {
+    font-family: marque;
+    font-size: clamp(2rem, 3vw + 1rem, 3.5rem);
+  }
+
+  .contac-left p {
+    font-size: clamp(1rem, 1.2vw, 1.4rem);
+    line-height: 1.8;
+    font-family: smallText;
+    width: 80%;
+    color: #7c7c7c;
+    max-width: 800px;
+  }
+
+  .cont-right {
+    width: 50%;
+    border: 1px solid white;
   }
 
   .texts {

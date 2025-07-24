@@ -1,6 +1,9 @@
-import React from "react";
+import React, { lazy } from "react";
 import "../components/CSS/AboutSection.css";
 import { useNavigate } from "react-router-dom";
+
+// Lazy load image-heavy parts
+const LazyMediaSection = lazy(() => import("../components/LazyAboutMedia"));
 
 const AboutSection = () => {
   const nav = useNavigate();
@@ -8,28 +11,14 @@ const AboutSection = () => {
   return (
     <section className="about-section">
       <div className="about-grid">
-        {/* Left Content */}
-        <div className="about-media">
-          <div className="image-card">
-            <img src="/Assets/Images/naina (1).jpg" alt="Naina Avtr" />
-          </div>
+        {/* Left Media (Lazy) */}
+        <React.Suspense
+          fallback={<div className="loader">Loading media...</div>}
+        >
+          <LazyMediaSection />
+        </React.Suspense>
 
-          <div className="image-card">
-            <img src="/Assets/Images/n5 (1).jpg" alt="Naina Avtr" />
-          </div>
-
-          <div className="stats-card">
-            <h3>30,000+</h3>
-            <p>Sales in July 2021 with 5 star ratings and happy clients</p>
-            <div className="avatars">
-              {[1, 2, 3, 4, 5].map((n) => (
-                <span key={n} className="avatar" />
-              ))}
-            </div>
-          </div>
-        </div>
-
-        {/* Right Content */}
+        {/* Right Text Content */}
         <div className="about-text">
           <span className="subtitle">A BIT</span>
           <h2 className="title">ABOUT ME</h2>
@@ -54,6 +43,7 @@ const AboutSection = () => {
             I’m here to reimagine creativity through a different lens.
           </p>
         </div>
+
         <div className="create">
           <h2 className="title">Let’s Co-Create Something Beautiful</h2>
           <p className="description">

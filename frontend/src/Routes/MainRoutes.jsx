@@ -1,17 +1,23 @@
 import { Routes, Route, Navigate } from "react-router-dom";
-import Home from "../Pages/Home";
-import About from "../Pages/About";
-import Service from "../Pages/Service";
-import Contact from "../Pages/Contact";
-import Login from "../Pages/Login";
-import { useContext, useEffect } from "react";
+import React, { useContext, Suspense, lazy } from "react";
 import { Usercontext } from "@/components/Wrapper";
+import ShimmerLoader from "@/components/ShimmerLoader";
+
+// Lazy load pages
+const Home = lazy(() => import("../Pages/Home"));
+const About = lazy(() => import("../Pages/About"));
+const Service = lazy(() => import("../Pages/Service"));
+const Contact = lazy(() => import("../Pages/Contact"));
+const Login = lazy(() => import("../Pages/Login"));
+
+// Optional fallback loader component (customize it if you want)
+const Loader = () => <ShimmerLoader />;
 
 const MainRoutes = () => {
-  const [userData, setuserData] = useContext(Usercontext);
+  const [userData] = useContext(Usercontext);
 
   return (
-    <>
+    <Suspense fallback={<Loader />}>
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
@@ -22,7 +28,7 @@ const MainRoutes = () => {
           element={!userData ? <Login /> : <Navigate to="/" />}
         />
       </Routes>
-    </>
+    </Suspense>
   );
 };
 

@@ -1,15 +1,19 @@
 import { useNavigate } from "react-router-dom";
 import "./CSS/Hero.css";
+import { useState, Suspense, lazy } from "react";
+import ShimmerLoader from "./ShimmerLoader";
+import LazyContact from "./LazyContact";
+import ContactForm from "./ContactForm";
 
-import ModelCanvas from "./ModelCanva";
-import "remixicon/fonts/remixicon.css";
-import { useState } from "react";
-import ServiceHero from "./ServiceHero";
-import Marquee from "react-fast-marquee";
-import AboutHero from "./AboutHero";
+// ✅ Lazy-loaded components
+const ModelCanvas = lazy(() => import("./ModelCanva"));
+const ServiceHero = lazy(() => import("./ServiceHero"));
+const AboutHero = lazy(() => import("./AboutHero"));
+
+const Marquee = lazy(() => import("react-fast-marquee"));
 
 const Hero = () => {
-  const [collabs, setcollabs] = useState([
+  const [collabs] = useState([
     {
       id: 1,
       brandName: "Baskin-Robbins",
@@ -47,16 +51,15 @@ const Hero = () => {
     },
   ]);
 
-  const work = collabs.map((collab) => {
-    return (
-      <div className="works" key={collab.id}>
-        <img src={collab.imag} alt={collab.brandName} />
-        <p>{collab.brandName}</p>
-      </div>
-    );
-  });
+  const work = collabs.map((collab) => (
+    <div className="works" key={collab.id}>
+      <img src={collab.imag} alt={collab.brandName} />
+      <p>{collab.brandName}</p>
+    </div>
+  ));
 
   const navigate = useNavigate();
+
   return (
     <>
       <div className="heroContainer">
@@ -66,7 +69,7 @@ const Hero = () => {
             <span>Naina Avtr</span>
             <h3>
               India’s FIRST AI-powered influencer redefining style, storytelling
-              & digital presence.Follow the journey of a virtual creator
+              & digital presence. Follow the journey of a virtual creator
               bridging the future of fashion, tech & identity.
             </h3>
 
@@ -81,8 +84,12 @@ const Hero = () => {
               />
             </button>
           </div>
+
           <div className="model">
-            <ModelCanvas />
+            <Suspense fallback={<ShimmerLoader />}>
+              <ModelCanvas />
+            </Suspense>
+
             <div className="aniIcons">
               <img
                 src="/Assets/Icons and videos/Heart.png"
@@ -108,29 +115,51 @@ const Hero = () => {
           </div>
         </div>
       </div>
+
       <div className="features">
         <h1>Worked With</h1>
         <hr />
         <div className="ic">
-          <Marquee
-            className="ic-track"
-            direction={"left"}
-            speed={60}
-            gradient
-            gradientColor="#060010"
-            gradientWidth={150}
-            pauseOnHover={false}
-          >
-            {work}
-            {work}
-            {work}
-          </Marquee>
+          <Suspense fallback={<ShimmerLoader />}>
+            <Marquee
+              className="ic-track"
+              direction={"left"}
+              speed={60}
+              gradient
+              gradientColor="#060010"
+              gradientWidth={150}
+              pauseOnHover={false}
+            >
+              {work}
+              {work}
+              {work}
+            </Marquee>
+          </Suspense>
         </div>
       </div>
 
-      <AboutHero />
+      <Suspense fallback={<ShimmerLoader />}>
+        <AboutHero />
+      </Suspense>
 
-      <ServiceHero />
+      <Suspense fallback={<ShimmerLoader />}>
+        <ServiceHero />
+      </Suspense>
+
+      <h1 className="brf_cont">Let's Connect</h1>
+      <div className="cont">
+        <div className="contac-left">
+          <h1>Let’s Build Something Iconic</h1>
+          <p>
+            Whether you’re a brand, creator, or curious mind — Naina would love
+            to hear from you.
+          </p>
+        </div>
+
+        <div className="cont-right">
+          <ContactForm />
+        </div>
+      </div>
     </>
   );
 };

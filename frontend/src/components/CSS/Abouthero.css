@@ -132,7 +132,6 @@
   .abtHeroLeft {
     width: 35%;
     height: 50%;
-    border: 1px solid white;
   }
 
   .abtHeroLeft img {
@@ -191,12 +190,7 @@
     aspect-ratio: 2/1.5;
   }
 
-  .abtHeroLeft img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    border-radius: 30px;
-  }
+
 
   .abtHeroLeft {
     width: 40%;

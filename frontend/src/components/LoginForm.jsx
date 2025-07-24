@@ -1,12 +1,12 @@
 import { useForm } from "react-hook-form";
 import "./CSS/LoginPage.css";
-
-import axios from "../Utils/axios";
 import { useContext } from "react";
 import { Usercontext } from "./Wrapper";
+import { useNavigate } from "react-router-dom";
 
 const UserForm = () => {
   const [userData, setuserData] = useContext(Usercontext);
+  const nav = useNavigate();
 
   const {
     register,
@@ -16,16 +16,19 @@ const UserForm = () => {
   } = useForm();
 
   const onSubmit = async (data) => {
-    // console.log("Form Data:", data);
     try {
+      const axios = (await import("../Utils/axios")).default;
+
       const res = await axios.post("/user", {
         userName: data.username,
         userEmail: data.email,
         password: data.password,
       });
+
       const user = res.data.user;
-      localStorage.setItem("user", JSON.stringify(user)); // <== store in localStorage
+      localStorage.setItem("user", JSON.stringify(user));
       setuserData(res.data);
+      nav("/");
     } catch (err) {
       console.error("Error submitting form:", err);
     }
@@ -79,13 +82,7 @@ const UserForm = () => {
         )}
       </div>
 
-      {/* <h3>
-        Don't have a account <span className="cursor-pointer">Register</span>
-      </h3> */}
-
-      <button type="submit" className="formButton">
-        Submit
-      </button>
+      <button className="formButton">Submit</button>
     </form>
   );
 };

@@ -1,14 +1,10 @@
 import { useNavigate } from "react-router-dom";
-import "./CSS/serviceHero.css";
-
-import { useEffect, useState } from "react";
-// import { Usercontext } from "./Wrapper";
-import React, { useRef } from "react";
+import { useEffect, useState, useRef } from "react";
 import gsap from "gsap";
+import "./CSS/serviceHero.css";
 
 const ServiceHero = () => {
   const nav = useNavigate();
-
   const listRefs = useRef([]);
   const imgRefs = useRef([]);
   const isMobile = window.innerWidth < 450;
@@ -58,7 +54,6 @@ const ServiceHero = () => {
       list.addEventListener("mouseenter", showImage);
       list.addEventListener("mouseleave", hideImage);
 
-      // cleanup
       return () => {
         list.removeEventListener("mousemove", moveImage);
         list.removeEventListener("mouseenter", showImage);
@@ -67,7 +62,7 @@ const ServiceHero = () => {
     });
   }, [isMobile]);
 
-  const [serviceoffered, setserviceoffered] = useState([
+  const [serviceoffered] = useState([
     {
       id: 1,
       title: "Digital Brand Collaborations",
@@ -119,6 +114,7 @@ const ServiceHero = () => {
                 alt={Serv.title}
                 className="hover-img"
                 ref={(el) => (imgRefs.current[i] = el)}
+                loading="lazy" // ✅ Image lazy loading
               />
             </div>
           ))}

@@ -32,7 +32,8 @@
 }
 
 .contact-form-container {
-  background: var(--color-bg-secondary);
+  background: rgba(255, 255, 255, 0.041);
+  backdrop-filter: blur(2px);
   padding: 2rem;
   border-radius: 16px;
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
