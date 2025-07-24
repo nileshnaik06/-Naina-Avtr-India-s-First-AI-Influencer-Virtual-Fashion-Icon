@@ -1,12 +1,11 @@
-import { useContext, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { Canvas } from "@react-three/fiber";
 import { OrbitControls, Preload } from "@react-three/drei";
 import Model from "../components/ThreeModel";
-import { Usercontext } from "./Wrapper";
 
 const ModelCanvas = () => {
   const [isMobile, setIsMobile] = useState(() => window.innerWidth < 450);
-  const [mouse, setMouse] = useContext(Usercontext);
+  const [mouse, setMouse] = useState({ x: 0, y: 0 });
 
   useEffect(() => {
     const updateSize = () => {

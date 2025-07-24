@@ -1,5 +1,6 @@
 import { useNavigate } from "react-router-dom";
-import "../components/serviceHero.css";
+import "./CSS/serviceHero.css";
+
 import { useEffect, useState } from "react";
 // import { Usercontext } from "./Wrapper";
 import React, { useRef } from "react";

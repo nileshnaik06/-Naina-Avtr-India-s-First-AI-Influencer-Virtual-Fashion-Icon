@@ -1,13 +1,13 @@
 import { useState } from "react";
 import { NavLink } from "react-router-dom";
-import "./NavSection.css";
-import { useContext, useEffect } from "react";
+import "./CSS/NavSection.css";
+
+import { useContext } from "react";
 import { Usercontext } from "@/components/Wrapper";
 import axios from "../Utils/axios";
 
 const Nav = () => {
   const [userData, setuserData] = useContext(Usercontext);
-
   const navContent = [
     { id: 1, title: "Home", link: "/" },
     { id: 2, title: "About", link: "/about" },
@@ -37,9 +37,6 @@ const Nav = () => {
   };
 
   const handleLogout = async () => {
-    console.log("userData:", userData);
-    console.log("userData._id:", userData?._id);
-
     if (!userData?._id) {
       console.error("User ID is missing.");
       return;

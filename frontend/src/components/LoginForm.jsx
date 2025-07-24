@@ -1,5 +1,6 @@
 import { useForm } from "react-hook-form";
-import "./LoginPage.css";
+import "./CSS/LoginPage.css";
+
 import axios from "../Utils/axios";
 import { useContext } from "react";
 import { Usercontext } from "./Wrapper";
@@ -17,7 +18,7 @@ const UserForm = () => {
   const onSubmit = async (data) => {
     // console.log("Form Data:", data);
     try {
-      const res = await axios.post("/user",   {
+      const res = await axios.post("/user", {
         userName: data.username,
         userEmail: data.email,
         password: data.password,

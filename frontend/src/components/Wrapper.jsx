@@ -6,8 +6,6 @@ export const Usercontext = createContext(null);
 const Wrapper = (props) => {
   const [userData, setuserData] = useState(null);
 
-  const [mouse, setMouse] = useState({ x: 0, y: 0 });
-
   useEffect(() => {
     const storedUser = localStorage.getItem("user");
     if (storedUser) {
@@ -27,7 +25,7 @@ const Wrapper = (props) => {
   }, []);
 
   return (
-    <Usercontext.Provider value={([userData, setuserData], [mouse, setMouse])}>
+    <Usercontext.Provider value={[userData, setuserData]}>
       {props.children}
     </Usercontext.Provider>
   );

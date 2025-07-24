@@ -1,5 +1,6 @@
 import { useNavigate } from "react-router-dom";
-import "./Hero.css";
+import "./CSS/Hero.css";
+
 import ModelCanvas from "./ModelCanva";
 import "remixicon/fonts/remixicon.css";
 import { useState } from "react";
