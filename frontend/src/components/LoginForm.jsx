@@ -22,7 +22,8 @@ const UserForm = () => {
         userEmail: data.email,
         password: data.password,
       });
-      console.log("✅ Success:", res.data);
+      const user = res.data.user;
+      localStorage.setItem("user", JSON.stringify(user)); // <== store in localStorage
       setuserData(res.data);
     } catch (err) {
       console.error("Error submitting form:", err);
@@ -76,6 +77,10 @@ const UserForm = () => {
           </p>
         )}
       </div>
+
+      {/* <h3>
+        Don't have a account <span className="cursor-pointer">Register</span>
+      </h3> */}
 
       <button type="submit" className="formButton">
         Submit

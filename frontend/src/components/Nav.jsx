@@ -3,6 +3,7 @@ import { NavLink } from "react-router-dom";
 import "./NavSection.css";
 import { useContext, useEffect } from "react";
 import { Usercontext } from "@/components/Wrapper";
+import axios from "../Utils/axios";
 
 const Nav = () => {
   const [userData, setuserData] = useContext(Usercontext);
@@ -14,7 +15,7 @@ const Nav = () => {
     { id: 4, title: "Contact", link: "/contact" },
     ...(!userData
       ? [{ id: 5, title: "Login", link: "/login" }]
-      : [{ id: 5, title: "Logout", link: "/logout" }]),
+      : [{ id: 6, title: "Logout", link: "/logout" }]),
   ];
 
   const [openMenu, setopenMenu] = useState(false);
@@ -35,14 +36,34 @@ const Nav = () => {
     }
   };
 
+  const handleLogout = async () => {
+    try {
+      const res = await axios.delete("/user", {
+        params: userData.user._id,
+      });
+      localStorage.removeItem("user");
+      setuserData(null);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   const mainNav = navContent.map((enav) => {
+    if (enav.title === "Logout") {
+      return (
+        <button key={enav.id} onClick={handleLogout} className="logout-button">
+          {enav.title}
+        </button>
+      );
+    }
+
     return (
       <NavLink
         key={enav.id}
         to={enav.link}
         className={({ isActive }) => (isActive ? "active" : "")}
       >
-        <p> {enav.title}</p>
+        <p>{enav.title}</p>
       </NavLink>
     );
   });
