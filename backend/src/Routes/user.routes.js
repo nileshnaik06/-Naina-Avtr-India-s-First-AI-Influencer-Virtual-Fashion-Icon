@@ -62,8 +62,8 @@ router.get("/user", async (req, res) => {
 
 router.delete("/user/:id", async (req, res) => {
     try {
-        const { _id } = req.query;
-        const deletedUser = await userModel.findByIdAndDelete(_id);
+        const { id } = req.params; // ✅ Fix this
+        const deletedUser = await userModel.findByIdAndDelete(id);
 
         if (!deletedUser) {
             return res.status(404).json({ message: "User not found" });
@@ -79,6 +79,7 @@ router.delete("/user/:id", async (req, res) => {
             error: error.message,
         });
     }
-})
+});
+
 
 module.exports = router
