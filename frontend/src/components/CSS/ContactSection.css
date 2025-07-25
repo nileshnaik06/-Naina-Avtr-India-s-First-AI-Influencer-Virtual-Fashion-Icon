@@ -78,6 +78,10 @@
   font-size: clamp(0.75rem, 1.3vw, 1.8rem);
 }
 
+.cont-right{
+  border: none;
+}
+
 .contact-info .info-item span {
   margin-right: 0.5rem;
   font-size: 1.2rem;
@@ -134,7 +138,7 @@
 }
 
 .contact-form button:hover {
-  background-color: #d4ff5c;
+  background-color: #ffffff;
   color: black;
 }
 
@@ -155,7 +159,7 @@
   .contact-left,
   .contact-form-container {
     flex: 1 1 100%;
-    max-width: 100%;
+    width: 100%;
   }
 }
 

@@ -1,5 +1,7 @@
 import { useEffect, useState, Suspense, lazy } from "react";
 import ShimmerLoader from "./components/ShimmerLoader";
+import Footer from "./components/Footer";
+import { useLocation } from "react-router-dom";
 
 // Lazy load heavy components
 const Nav = lazy(() => import("./components/Nav"));
@@ -36,12 +38,22 @@ const App = ({ root }) => {
     return () => root.removeEventListener("mousemove", handleMouseMove);
   }, [size]);
 
+  const location = useLocation();
+
+  const knownRoutes = ["/", "/about", "/service", "/contact", "/login"];
+  const isNotFound = !knownRoutes.includes(location.pathname);
+
+  // You now only want to hide layout on 404
+  const shouldHideLayout = isNotFound;
+
   return (
-    <Suspense fallback={<ShimmerLoader />}>
-      {size > 1023 && <div className="cursor"></div>}
-      <Nav />
+    <>
+      {!shouldHideLayout && size > 1023 && <div className="cursor"></div>}
+
+      {!shouldHideLayout && <Nav />}
       <MainRoutes />
-    </Suspense>
+      {!shouldHideLayout && <Footer />}
+    </>
   );
 };
 

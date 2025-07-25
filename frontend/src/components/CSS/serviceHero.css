@@ -74,12 +74,22 @@
 }
 
 .expSer {
-  background-color: #d8ff04;
   width: fit-content;
-  padding: 0.5rem 1rem;
-  border-radius: 5px;
-  color: black;
+  margin-top: 1.5rem;
+  padding: 0.8rem 2rem;
+  font-size: clamp(0.9rem, 1vw, 1rem);
+  background: linear-gradient(to right, #9c6efc, #7c4dff);
+  color: white;
+  font-family: smallText;
+  border: none;
+  border-radius: 0.75rem;
+  box-shadow: 0 5px 15px rgba(124, 77, 255, 0.3);
   cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.expSer:hover {
+  transform: translateY(-2px);
 }
 
 /* Responsive adjustments */

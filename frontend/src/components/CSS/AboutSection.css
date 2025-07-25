@@ -134,17 +134,6 @@
   cursor: pointer;
   transition: all 0.3s;
 }
-.actions .links a {
-  opacity: 0.8;
-  font-family: smallText;
-  font-weight: 300;
-  cursor: pointer;
-  margin-right: 1rem;
-}
-
-.actions .links a:hover {
-  border-bottom: 1px solid #6a3fbe;
-}
 
 .actions button:hover {
   background: #7a4bd8;

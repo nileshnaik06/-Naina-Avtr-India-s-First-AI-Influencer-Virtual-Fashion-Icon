@@ -53,11 +53,6 @@ const AboutSection = () => {
 
           <div className="actions">
             <button onClick={() => nav("/contact")}>Get in Touch</button>
-            <div className="links">
-              <a href="https://www.facebook.com/nainaavtr/">Facebook</a>
-              <a href="https://www.instagram.com/naina_avtr/">Instagram</a>
-              <a href="https://x.com/naina_avtr">X (Twitter)</a>
-            </div>
           </div>
         </div>
       </div>

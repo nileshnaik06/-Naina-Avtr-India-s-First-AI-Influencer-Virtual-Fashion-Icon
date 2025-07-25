@@ -1,0 +1,141 @@
+.footer {
+  font-family: "Helvetica Neue", sans-serif;
+  padding: 4rem 2rem 1rem;
+  background-color: #1f1f1f;
+  border-top-left-radius: 10%;
+  border-top-right-radius: 10%;
+  margin-top: 4rem;
+}
+
+.footer-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4rem;
+  justify-content: space-evenly;
+  max-width: 1400px;
+  margin: auto;
+}
+
+.footer-left {
+  flex: 1 1 300px;
+  min-width: 280px;
+}
+
+.footer-left h2 {
+  font-size: clamp(1.8rem, 3vw, 2.5rem);
+  margin-bottom: 1rem;
+  font-family: LogoFont;
+  text-transform: uppercase;
+}
+
+.footer-left p {
+  font-size: clamp(0.9rem, 1.5vw, 1.1rem);
+  margin-bottom: 1rem;
+  color: #bebebead;
+  font-family: smallText;
+}
+
+.footer-email {
+  font-size: clamp(1rem, 1.8vw, 1.2rem);
+  color: #fff;
+  text-decoration: none;
+  font-family: inputText;
+  display: inline-block;
+  margin-top: 0.5rem;
+}
+
+.footer-email:hover {
+  text-decoration: underline;
+}
+
+.footer-right {
+  display: flex;
+  flex: 1 1 300px;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.footer-block {
+  flex: 1 1 200px;
+  min-width: 200px;
+}
+
+.footer-block h4 {
+  font-size: clamp(1rem, 1.4vw, 1.2rem);
+  margin-bottom: 0.5rem;
+  font-family: marque;
+}
+
+.footer-block p,
+.footer-block ul {
+  font-size: clamp(0.9rem, 1.3vw, 1.05rem);
+  color: #8b8b8b;
+  cursor: pointer;
+  line-height: 1.6;
+}
+
+.footer-block ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-block ul li a img {
+  aspect-ratio: 1/1;
+}
+
+.footer-block ul li {
+  margin-top: 0.4rem;
+}
+
+.footer-block ul li a {
+  display: flex;
+  align-items: center;
+  gap: .8rem;
+}
+
+.footer-block ul li a:hover{
+  color: white;
+}
+
+.footer-nav a {
+  display: block;
+  text-decoration: none;
+  color: #a1a1a1;
+  font-family: smallText;
+  font-weight: 100;
+  margin-bottom: 0.5rem;
+  font-size: clamp(0.95rem, 1.3vw, 1.1rem);
+}
+
+.footer-nav a:hover {
+  text-decoration: underline;
+  color: white;
+}
+
+.footer-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 2rem;
+  flex-wrap: wrap;
+  font-size: clamp(0.8rem, 1vw, 1rem);
+  border-top: 1px solid #333;
+  padding-top: 1rem;
+}
+
+.scroll-top-btn {
+  background: transparent;
+  border: 1px solid #fff;
+  color: #fff;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  font-size: clamp(0.85rem, 1.2vw, 1rem);
+  border-radius: 50px;
+  transition: all 0.3s ease;
+}
+
+.scroll-top-btn:hover {
+  background: #fff;
+  color: #000;
+}

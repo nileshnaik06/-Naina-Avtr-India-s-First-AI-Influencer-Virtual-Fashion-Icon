@@ -125,7 +125,7 @@ const Hero = () => {
               direction={"left"}
               speed={60}
               gradient
-              gradientColor="#060010"
+              gradientColor="#000000"
               gradientWidth={150}
               pauseOnHover={false}
             >

@@ -1,6 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import { Suspense, lazy } from "react";
 import "./CSS/Abouthero.css";
+import ShimmerLoader from "./ShimmerLoader";
 
 // Lazy load the heavy component
 const TiltedCard = lazy(() =>
@@ -13,7 +14,7 @@ const AboutHero = () => {
   return (
     <div className="abtHero">
       <div className="abtHeroLeft">
-        <Suspense fallback={<div className="loader">Loading Card...</div>}>
+        <Suspense fallback={<ShimmerLoader />}>
           <TiltedCard
             imageSrc="/Assets/Images/Naina.abt (1).jpg"
             altText="Naina Avtr - Ai Model"

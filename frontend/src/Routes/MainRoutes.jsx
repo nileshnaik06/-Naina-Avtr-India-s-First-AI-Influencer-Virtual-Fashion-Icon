@@ -2,6 +2,7 @@ import { Routes, Route, Navigate } from "react-router-dom";
 import React, { useContext, Suspense, lazy } from "react";
 import { Usercontext } from "@/components/Wrapper";
 import ShimmerLoader from "@/components/ShimmerLoader";
+import PageNotFound from "@/Pages/PageNotFound";
 
 // Lazy load pages
 const Home = lazy(() => import("../Pages/Home"));
@@ -27,6 +28,7 @@ const MainRoutes = () => {
           path="/login"
           element={!userData ? <Login /> : <Navigate to="/" />}
         />
+        <Route path="*" element={<PageNotFound />} />
       </Routes>
     </Suspense>
   );
