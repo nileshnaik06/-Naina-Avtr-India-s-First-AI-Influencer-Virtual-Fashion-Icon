@@ -2,7 +2,6 @@ import { useNavigate } from "react-router-dom";
 import "./CSS/Hero.css";
 import { useState, Suspense, lazy } from "react";
 import ShimmerLoader from "./ShimmerLoader";
-import LazyContact from "./LazyContact";
 import ContactForm from "./ContactForm";
 
 // ✅ Lazy-loaded components
