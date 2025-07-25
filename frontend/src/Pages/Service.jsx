@@ -1,5 +1,6 @@
 import React from "react";
 import "../components/CSS/ServiceSection.css";
+import { useNavigate } from "react-router-dom";
 
 const Service = () => {
   const services = [
@@ -40,6 +41,8 @@ const Service = () => {
     },
   ];
 
+  const nav = useNavigate();
+
   return (
     <section className="services-section">
       <div className="srvice-cont">
@@ -60,8 +63,14 @@ const Service = () => {
               </div> */}
               <h3 className="service-title">{service.title}</h3>
               <p className="service-desc">{service.description}</p>
-              <button className="service-btn">
-                view <span>→</span>
+              <button
+                className="service-btn"
+                onClick={() => {
+                  nav("/contact");
+                  window.scrollTo({ top: 0, behavior: "smooth" });
+                }}
+              >
+                Get a call <span>→</span>
               </button>
             </div>
           ))}

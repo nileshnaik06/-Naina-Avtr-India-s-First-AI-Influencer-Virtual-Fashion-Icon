@@ -47,7 +47,13 @@ const AboutHero = () => {
             and imagine beyond the ordinary.
           </h4>
         </div>
-        <button className="cta-button" onClick={() => nav("/about")}>
+        <button
+          className="cta-button"
+          onClick={() => {
+            nav("/about");
+            window.scrollTo({ top: 0, behavior: "smooth" });
+          }}
+        >
           EXPLORE MORE
         </button>
       </div>

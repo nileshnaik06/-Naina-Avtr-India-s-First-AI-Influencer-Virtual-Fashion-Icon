@@ -3,6 +3,11 @@ import ShimmerLoader from "./components/ShimmerLoader";
 import Preloader from "./components/PreLoader";
 import Footer from "./components/Footer";
 import { useLocation } from "react-router-dom";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
+// ✅ Lenis import
+import Lenis from "@studio-freight/lenis";
 
 // Lazy load heavy components
 const Nav = lazy(() => import("./components/Nav"));
@@ -10,24 +15,48 @@ const MainRoutes = lazy(() => import("./Routes/MainRoutes"));
 
 const App = ({ root }) => {
   const [size, setsize] = useState(window.innerWidth);
-  const [isLoading, setIsLoading] = useState(true); // ⬅️ Preloader state
+  const [isLoading, setIsLoading] = useState(true);
 
-  // ✅ Window resize logic
+  const location = useLocation();
+  const knownRoutes = ["/", "/about", "/service", "/contact", "/login"];
+  const isNotFound = !knownRoutes.includes(location.pathname);
+  const shouldHideLayout = isNotFound;
+
+  // ✅ Initialize Lenis once
+  useEffect(() => {
+    if (isLoading) return;
+
+    const lenis = new Lenis({
+      duration: 0.7,
+      easing: (t) => t,
+      smooth: true,
+      smoothTouch: true,
+    });
+
+    function raf(time) {
+      lenis.raf(time);
+      requestAnimationFrame(raf);
+    }
+
+    requestAnimationFrame(raf);
+
+    return () => lenis.destroy();
+  }, [isLoading]);
+
+  // ✅ Resize handler
   useEffect(() => {
     const handleResize = () => setsize(window.innerWidth);
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
-  // ✅ Wait for full load + 1.5s delay
+  // ✅ Preloader logic
   useEffect(() => {
     const start = Date.now();
-
     const handleLoad = () => {
       const duration = Date.now() - start;
-      const minTime = 1500;
+      const minTime = 1000;
       const remaining = minTime - duration;
-
       setTimeout(
         () => {
           setIsLoading(false);
@@ -45,12 +74,6 @@ const App = ({ root }) => {
     return () => window.removeEventListener("load", handleLoad);
   }, []);
 
-  const location = useLocation();
-  const knownRoutes = ["/", "/about", "/service", "/contact", "/login"];
-  const isNotFound = !knownRoutes.includes(location.pathname);
-  const shouldHideLayout = isNotFound;
-
-  // ✅ Return Preloader first, then show rest
   if (isLoading) return <Preloader />;
 
   return (
@@ -58,6 +81,7 @@ const App = ({ root }) => {
       <Suspense fallback={<ShimmerLoader />}>
         {!shouldHideLayout && <Nav />}
         <MainRoutes />
+        <ToastContainer />
         {!shouldHideLayout && <Footer />}
       </Suspense>
     </>

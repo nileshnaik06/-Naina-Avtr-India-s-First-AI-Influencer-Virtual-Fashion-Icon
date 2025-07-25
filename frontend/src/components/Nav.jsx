@@ -5,6 +5,7 @@ import "./CSS/NavSection.css";
 import { useContext } from "react";
 import { Usercontext } from "@/components/Wrapper";
 import axios from "../Utils/axios";
+import { toast } from "react-toastify";
 
 const Nav = () => {
   const [userData, setuserData] = useContext(Usercontext);
@@ -38,12 +39,17 @@ const Nav = () => {
 
   const handleLogout = async () => {
     if (!userData?._id) {
-      console.error("User ID is missing.");
+      toast.error("User Not found");
       return;
     }
     try {
       const res = await axios.delete(`/user/${userData._id}`);
       localStorage.removeItem("user");
+
+      toast.error("User Logged out", {
+        autoClose: 3000,
+      });
+
       setuserData(null);
     } catch (error) {
       console.log(error);

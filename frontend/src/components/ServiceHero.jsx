@@ -120,7 +120,13 @@ const ServiceHero = () => {
           ))}
         </div>
       </div>
-      <button className="expSer" onClick={() => nav("/service")}>
+      <button
+        className="expSer"
+        onClick={() => {
+          nav("/service");
+          window.scrollTo({ top: 0, behavior: "smooth" });
+        }}
+      >
         Explore Services
       </button>
     </div>

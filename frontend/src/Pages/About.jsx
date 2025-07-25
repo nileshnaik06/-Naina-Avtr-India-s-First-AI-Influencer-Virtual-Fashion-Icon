@@ -1,6 +1,7 @@
 import React, { lazy } from "react";
 import "../components/CSS/AboutSection.css";
 import { useNavigate } from "react-router-dom";
+import ShimmerLoader from "@/components/ShimmerLoader";
 
 // Lazy load image-heavy parts
 const LazyMediaSection = lazy(() => import("../components/LazyAboutMedia"));
@@ -12,9 +13,7 @@ const AboutSection = () => {
     <section className="about-section">
       <div className="about-grid">
         {/* Left Media (Lazy) */}
-        <React.Suspense
-          fallback={<div className="loader">Loading media...</div>}
-        >
+        <React.Suspense fallback={<ShimmerLoader />}>
           <LazyMediaSection />
         </React.Suspense>
 

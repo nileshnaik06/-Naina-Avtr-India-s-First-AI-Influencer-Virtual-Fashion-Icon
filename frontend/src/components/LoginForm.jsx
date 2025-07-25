@@ -1,12 +1,14 @@
 import { useForm } from "react-hook-form";
 import "./CSS/LoginPage.css";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { Usercontext } from "./Wrapper";
 import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 
 const UserForm = () => {
   const [userData, setuserData] = useContext(Usercontext);
   const nav = useNavigate();
+  const [loading, setLoading] = useState(false);
 
   const {
     register,
@@ -16,6 +18,7 @@ const UserForm = () => {
   } = useForm();
 
   const onSubmit = async (data) => {
+    const toastId = toast.loading("Submitting..."); // shows loading toast
     try {
       const axios = (await import("../Utils/axios")).default;
 
@@ -25,14 +28,28 @@ const UserForm = () => {
         password: data.password,
       });
 
+      toast.update(toastId, {
+        render: "Registered successfully!",
+        type: "success",
+        isLoading: false,
+        autoClose: 3000,
+      });
+
       const user = res.data.user;
       localStorage.setItem("user", JSON.stringify(user));
       setuserData(res.data);
       nav("/");
     } catch (err) {
+      toast.update(toastId, {
+        render: "Something went wrong!",
+        type: "error",
+        isLoading: false,
+        autoClose: 3000,
+      });
       console.error("Error submitting form:", err);
+    } finally {
+      reset();
     }
-    reset();
   };
 
   return (
@@ -82,8 +99,8 @@ const UserForm = () => {
         )}
       </div>
 
-      <button type="submit" className="formButton">
-        Login
+      <button type="submit" disabled={loading} className="formButton">
+        {loading ? "Processing..." : "Login"}
       </button>
     </form>
   );

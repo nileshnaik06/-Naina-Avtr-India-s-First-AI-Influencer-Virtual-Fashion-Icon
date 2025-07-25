@@ -46,22 +46,11 @@
 html,
 body {
   width: 100%;
-  /* background: radial-gradient(
-      circle at top right,
-      rgba(206, 70, 255, 0.288),
-      rgba(56, 189, 248, 0.15),
-      transparent 25%
-    ),
-    radial-gradient(
-      circle at bottom left,
-      rgba(56, 189, 248, 0.15),
-      transparent 30%
-    ),
-    var(--color-bg);
-    background-repeat: no-repeat; */
   background-color: #000;
   color: var(--text-color);
-  scroll-behavior: smooth;
+  transform: translate3d(0, 0, 0);
+  backface-visibility: hidden;
+  -webkit-font-smoothing: antialiased;
 }
 
 #root {

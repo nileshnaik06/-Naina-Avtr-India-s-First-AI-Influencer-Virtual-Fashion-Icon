@@ -1,6 +1,15 @@
-import React from "react";
+import React, { useState } from "react";
+import "./CSS/AboutSection.css";
 
 const LazyAboutMedia = () => {
+  const [icons, seticons] = useState([
+    { id: 1, src: "/Assets/Images/businessman (1).png" },
+    { id: 2, src: "/Assets/Images/girl (1).png" },
+    { id: 3, src: "/Assets/Images/man (1) (1).png" },
+    { id: 4, src: "/Assets/Images/man (2).png" },
+    { id: 5, src: "/Assets/Images/woman (1).png" },
+  ]);
+
   return (
     <div className="about-media">
       <div className="image-card">
@@ -17,10 +26,12 @@ const LazyAboutMedia = () => {
 
       <div className="stats-card">
         <h3>30,000+</h3>
-        <p>Sales in July 2021 with 5 star ratings and happy clients</p>
+        <p> 5 star ratings and happy clients</p>
         <div className="avatars">
-          {[1, 2, 3, 4, 5].map((n) => (
-            <span key={n} className="avatar" />
+          {icons.map((icon) => (
+            <span className="avatar" key={icon.id}>
+              <img src={icon.src} alt="" />
+            </span>
           ))}
         </div>
       </div>
