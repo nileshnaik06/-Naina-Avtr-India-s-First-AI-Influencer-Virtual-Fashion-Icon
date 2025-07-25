@@ -1,7 +1,10 @@
 import React from "react";
 import "./CSS/Footer.css";
+import { useNavigate } from "react-router-dom";
 
 const Footer = () => {
+  const nav = useNavigate();
+
   return (
     <footer className="footer">
       <div className="footer-container">
@@ -72,11 +75,38 @@ const Footer = () => {
 
           <div className="footer-block">
             <nav className="footer-nav">
-              <a href="/">HOME</a>
-              <a href="/about">ABOUT</a>
-              <a href="/service">SERVICES</a>
-              <a href="/contact">CONTACT</a>
-              <a href="/login">Login</a>
+              <p
+                onClick={() => {
+                  nav("/");
+                  window.scrollTo({ top: 0, behavior: "smooth" });
+                }}
+              >
+                Home
+              </p>
+              <p
+                onClick={() => {
+                  nav("/about");
+                  window.scrollTo({ top: 0, behavior: "smooth" });
+                }}
+              >
+                About
+              </p>
+              <p
+                onClick={() => {
+                  nav("/service");
+                  window.scrollTo({ top: 0, behavior: "smooth" });
+                }}
+              >
+                Service
+              </p>
+              <p
+                onClick={() => {
+                  nav("/contact");
+                  window.scrollTo({ top: 0, behavior: "smooth" });
+                }}
+              >
+                Contact
+              </p>
             </nav>
           </div>
         </div>

@@ -91,14 +91,14 @@
 .footer-block ul li a {
   display: flex;
   align-items: center;
-  gap: .8rem;
+  gap: 0.8rem;
 }
 
-.footer-block ul li a:hover{
+.footer-block ul li a:hover {
   color: white;
 }
 
-.footer-nav a {
+.footer-nav p {
   display: block;
   text-decoration: none;
   color: #a1a1a1;
@@ -108,7 +108,7 @@
   font-size: clamp(0.95rem, 1.3vw, 1.1rem);
 }
 
-.footer-nav a:hover {
+.footer-nav p:hover {
   text-decoration: underline;
   color: white;
 }
