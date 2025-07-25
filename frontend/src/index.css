@@ -33,10 +33,6 @@
   font-family: "inputText";
   src: url(../public/Assets/Fonts/GeovaTrial-Regular.ttf);
 }
-@font-face {
-  font-family: "formInput";
-  src: url(../public/Assets/Fonts/GeovaTrial-Regular.ttf);
-}
 
 * {
   box-sizing: border-box;
