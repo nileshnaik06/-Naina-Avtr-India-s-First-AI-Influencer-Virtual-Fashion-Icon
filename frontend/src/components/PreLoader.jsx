@@ -1,5 +1,5 @@
-import "./CSS/Preloader.css";
 import SplitText from "../../components/SplitText/SplitText";
+import "./CSS/Preloader.css";
 
 const PreLoader = () => {
   return (

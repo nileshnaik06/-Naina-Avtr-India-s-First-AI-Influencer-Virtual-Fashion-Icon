@@ -1,6 +1,6 @@
 import { useEffect, useState, Suspense, lazy } from "react";
 import ShimmerLoader from "./components/ShimmerLoader";
-import Preloader from "./components/Preloader"; // ⬅️ You'll create this file
+import Preloader from "./components/PreLoader";
 import Footer from "./components/Footer";
 import { useLocation } from "react-router-dom";
 
