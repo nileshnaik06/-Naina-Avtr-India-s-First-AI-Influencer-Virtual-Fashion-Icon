@@ -72,10 +72,7 @@ const Hero = () => {
               bridging the future of fashion, tech & identity.
             </h3>
 
-            <button
-              onClick={() => navigate("/contact")}
-              className="cursor-pointer flex items-center justify-between"
-            >
+            <button onClick={() => navigate("/contact")} className="hero_btn">
               Let's Collab
               <img
                 src="./Assets/Icons and videos/arrow-right-line.svg"

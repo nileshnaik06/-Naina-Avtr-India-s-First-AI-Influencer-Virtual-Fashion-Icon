@@ -66,20 +66,21 @@
   font-family: smallText;
 }
 
-.texts button {
+.hero_btn {
   height: 2.5rem;
   width: clamp(7vw, 10rem, 10em);
   pointer-events: all;
-  border: 1px solid rgb(224, 224, 224);
   padding: 0.4rem 0.9rem;
   font-size: 1rem;
   font-weight: 500;
   border-radius: 3px;
-  transition: all ease-in-out 0.4s;
+  transition: all ease 0.4s;
   font-family: "smallText";
+  border: transparent;
+  cursor: pointer;
 }
 
-.texts button img {
+.hero_btn img {
   width: 1.66rem;
   aspect-ratio: 1/1;
   border: 1px solid transparent;
@@ -88,10 +89,10 @@
   background: #ffffff3d;
 }
 
-.texts button:hover {
+.hero_btn:hover {
   background-color: var(--text-color);
-  color: var(--color-bg);
-  border: transparent;
+  border: 1px solid rgb(224, 224, 224);
+  transform: translate(-2px);
 }
 
 .texts button:active {
@@ -227,6 +228,14 @@ canvas {
   position: relative;
 }
 
+.hero_btn {
+  background: linear-gradient(to right, #9c6efc, #7c4dff);
+  box-shadow: 0 5px 15px rgba(124, 77, 255, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
 .cont {
   padding: 1rem 2rem;
   width: 100%;
@@ -355,12 +364,12 @@ canvas {
     width: 100%;
   }
 
-  .texts button {
+  .hero_btn {
     color: white;
     font-weight: 500;
   }
 
-  .texts button img {
+  .hero_btn img {
     background-color: white;
     text-align: center;
     transition: all ease 0.1s;
@@ -420,14 +429,14 @@ canvas {
     width: 80%;
   }
 
-  .texts button {
+  .hero_btn {
     width: 12vw;
     height: 3vw;
     margin-top: 1rem;
     font-size: 1.5vw;
   }
 
-  .texts button img {
+  .hero_btn img {
     width: 1.5vw;
   }
 

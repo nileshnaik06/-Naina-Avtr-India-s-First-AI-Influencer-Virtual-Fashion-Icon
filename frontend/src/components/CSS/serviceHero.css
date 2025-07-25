@@ -85,7 +85,7 @@
   border-radius: 0.75rem;
   box-shadow: 0 5px 15px rgba(124, 77, 255, 0.3);
   cursor: pointer;
-  transition: transform 0.2s ease;
+  transition: all 0.5s ease;
 }
 
 .expSer:hover {
@@ -127,6 +127,7 @@
     font-size: clamp(1vw, 2vw, 2.5rem);
     margin-top: 2vw;
     cursor: pointer;
+    transition: all 0.5s ease;
   }
 
   .serheroCenter {
@@ -164,7 +165,4 @@
   .headTxt h3 {
     font-size: clamp(1vw, 2vw, 2.2rem);
   }
-}
-
-@media (max-width: 480px) {
 }

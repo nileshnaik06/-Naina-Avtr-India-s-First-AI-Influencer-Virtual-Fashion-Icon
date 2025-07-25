@@ -55,7 +55,7 @@ form input {
   border: 1px solid white;
   margin-bottom: 1rem;
   padding: 0 1rem;
-  font-family: formInput;
+  font-family: smallText;
   outline: none;
   font-weight: 300;
   font-size: 1em;
@@ -68,14 +68,21 @@ form label {
 }
 
 .formButton {
-  background: #d8ff04;
-  height: 2em;
-  border-radius: 210px;
-  color: black;
-  text-align: center;
-  font-size: 5vw;
+  margin-top: 1.5rem;
+  padding: 0.8rem 2rem;
+  font-size: clamp(0.9rem, 1vw, 1rem);
+  color: white;
+  border: none;
+  border-radius: 0.75rem;
+  background: linear-gradient(to right, #9c6efc, #7c4dff);
+  box-shadow: 0 5px 15px rgba(124, 77, 255, 0.3);
+  cursor: pointer;
+  transition: transform 0.2s ease;
   font-family: marque;
-  font-weight: 500;
+}
+
+.formButton:hover {
+  transform: translateY(-2px);
 }
 
 @media (min-width: 768px) and (max-width: 1023px) {
@@ -160,7 +167,7 @@ form label {
     gap: 1rem;
   }
   form label {
-    font-size: 1.5vw  ;
+    font-size: 1.5vw;
   }
 
   form input {

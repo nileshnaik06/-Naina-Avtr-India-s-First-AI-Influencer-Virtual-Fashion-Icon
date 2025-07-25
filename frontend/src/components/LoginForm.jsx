@@ -82,7 +82,9 @@ const UserForm = () => {
         )}
       </div>
 
-      <button className="formButton">Submit</button>
+      <button type="submit" className="formButton">
+        Login
+      </button>
     </form>
   );
 };
